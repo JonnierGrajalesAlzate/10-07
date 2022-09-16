@@ -1,135 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="./asseds/icons8-signo-de-reciclaje-50.png">
-    <link rel="stylesheet" href="./css/pregunta.css">
-    <title>Pregunta2-RECIPLANET</title>
+
+      
+     <title>Pregunta2-ReciPlanet</title>
+
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <link rel="stylesheet" href="./css/pregunta.css">
+
+     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.all.min.js"></script>
+
+     <!-- 
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+      -->
+
+     <link rel="stylesheet" href="index.css">
+     <script src="./script/pregunta2.js"></script>
+     <script defer src="./script/preguntas.js"></script>
+
+     <meta property="og:site_name" content="Juego de preguntas">
+     <meta property="og:title" content="Juego de preguntas">
+     <meta property="og:description" content="versión 2">
+     <meta property="og:image" content="https://i.ibb.co/3vg4KNb/softyo-001.png">
+     <link rel="shortcut icon" href="./assets/icons8-signo-de-reciclaje-50.png">
 </head>
+
+
 <body>
+     <div id="tablero-de-juego">
 
-    <div class="contenedor">
-        <div class="encabezado">
-            <div class="categoria" id="categoria">
-                Categoria
-            </div>
+          <div id="encabezado">
+               
+               <ul class="menu-horizontal">
+                    <li><a href="./index.html" id="selector">Regresar</a></li>
+                </ul>
 
-            <div class="pregunta" id="pregunta">
-                Pregunta
-            </div>
-            <img src="" class="imagen" id="imagen" >
-        </div>
-        <div class="btn" id="btn1" onclick="oprimir_btn(0)">Opción 1</div>
-        <div class="btn" id="btn2" onclick="oprimir_btn(1)">Opción 2</div>
-        <div class="btn" id="btn3" onclick="oprimir_btn(2)">Opción 3</div>
-        <div class="btn" id="btn4" onclick="oprimir_btn(3)">Opción 4</div>
-    </div>
+                <a id="ayuda" class="btn btn-info" onclick="ayuda()">
+                     Ayuda
+               </a>
 
-    <script>
+               <br>
 
-        
-let base_preguntas = readText("pregunta.json")
-let interprete_bp = JSON.parse(base_preguntas)
-let pregunta
-let btn_correspondiente = [
-    select_id("btn1"),
-    select_id("btn2"),
-    select_id("btn3"),
-    select_id("btn4")
-]
+               <span id="pregunta">Aquí va la pregunta</span>
+               <br>
 
-function escogerPreguntaAleatoria(){
-    escogerPregunta(Math.floor(Math.random()*interprete_bp.lenght))
-}
+               <img id="imagen" src="https://i.ibb.co/kh4FD6Z/img.png" style="width: 90%;height: 200px;object-fit: contain;">
+          </div>
 
-function escogerPregunta(n){
-    pregunta = interprete_bp[n]
-    select_id("categoría").innerHTML = pregunta.categoría
-    select_id("pregunta").innerHTML = pregunta.pregunta
-    select_id("imagen").setAttribute("src".pregunta.imagen)
-    style("imagen").objectFit = pregunta.objectFit;
-    select_id("btn1").innerHTML = pregunta.respuesta
-    select_id("btn2").innerHTML = pregunta.incorrecta1
-    select_id("btn3").innerHTML = pregunta.incorrecta2
-    select_id("btn4").innerHTML = pregunta.incorrecta3
+          <div class="opcion" id="opcion-1" onclick="seleccionarOpción(0)">
+               Opción 1
+          </div>
+          <div class="opcion" id="opcion-2" onclick="seleccionarOpción(1)">
+               Opción 2
+          </div>
+          <div class="opcion" id="opcion-3" onclick="seleccionarOpción(2)">
+               Opción 3
+          </div>
+          <div class="opcion" id="opcion-4" onclick="seleccionarOpción(3)">
+               Opción 4
+          </div>
 
-    if(pregunta.imagen){
-        style("imagen").height="200px"
-        style("imagen").width="100%"
-    }
-    else{
-        style("imagen").height="0px"
-        style("imagen").width="0px"
-    }
-}
-
-let btns= [
-    select_id("btn1"),
-    select_id("btn2"),
-    select_id("btn3"),
-    select_id("btn4")
-]
-
-function desordenarRespuestas(Pregunta){
-    let Posibles_respuestas =[
-        pregunta.respuesta, 
-        pregunta.incorrecta1, 
-        pregunta.incorrecta2, 
-        pregunta.incorrecta3 
-    ]
-    arr.sort(()=>Math.random()-0.5)
-
-    select_id("btn1").innerHTML = Posibles_respuestas[0]
-    select_id("btn2").innerHTML = Posibles_respuestas[1]
-    select_id("btn3").innerHTML = Posibles_respuestas[2]
-    select_id("btn4").innerHTML = Posibles_respuestas[3]
-}
-
-let oprimir_btn (i){
-    
-    if(Posibles_respuesta[i] == pregunta.respuesta){
-        btn_correspondiente[i].style.background = "lightgreen"
-    }
-    else{
-        btn_correspondiente[i].style.background = "lightred"
-    }
-
-    setTimeout(()=>{
-        reiniciar()
-    }, 30000)
-
-}
-
-function reiniciar(){
-   for (const btn of btn_correspondiente){
-    btn.style.background = "white"
-   }
-   escogerPreguntaAleatoria()
-}
+     </div>
 
 
-function select_id(id){
-    return document.getElementById(id)
-}
 
-function style(id){
-return select_id(id).style
-}
-
-function readText(ruta_local){
-    var texto= null;
-    var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("GET", ruta_local, false)
-    xmlhttp.send();
-    if (xmlhttp.status == 200) {
-        texto == xmlhttp.responseText
-    }
-    returntexto;
-}
-
-    </script>
-    
 </body>
+
 </html>

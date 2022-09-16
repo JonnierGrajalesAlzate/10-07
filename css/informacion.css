@@ -1,7 +1,16 @@
 * {
+    transition: all 0.3s;
     margin: 0px;
     padding: 0px;
 }
+
+
+
+body{
+    background-color:rgb(172, 211, 183);   
+}
+
+
 .todo{
     background-color:bisque;
     margin-top: 5%;
@@ -13,32 +22,91 @@
     align-content: center;
 }
 
+@keyframes reciplanet{
+    0% {
+        opacity: 0;
+    }
 
-body{
-    background-color:rgb(126, 124, 124);   
+    100% {
+        opacity: 1;
+    }
 }
 
-header{
-    margin-top: 20px;
-    background-color:chartreuse;
+.menu-horizontal{
+    background-color:  rgb(14, 24, 51);
+    height: 100px;
+    width: 100%;
+    list-style: none;
+ 
 }
 
-header h1{
-    font-size: 70px;
+.menu-horizontal > li a{
+    display: block;
+    padding: 15px 20px;
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+    float: left;
+}
+
+#selector{
+   background: rgb(14, 24, 51);
+   color: white;
+   font-family: 'Lobster', cursive;
+}
+
+#selector:hover{
+    font-size: 57px;
     color: black;
-    font-family: 'Dancing Script', cursive;
-    text-align: center;
+    background: #fcff5c;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
+
+h1{
+    text-align: center;
+    font-size: 40px;
+    background-color: #69ee41;
+}
+
 
 .contenedor{
+  
     width: 50%;
-    height: 470px;
+    height: 20%;
     margin-left: 20px;
+    margin-top: 7px;
     text-align: center;
     display: inline-block;
     align-content: right;
+    animation: jonnier 1s ease;
     
 }
+
+@keyframes jonnier{
+    0% {
+      opacity: 0;
+      transform: translateX(-100%);
+  }
+
+  100%{
+      opacity: 1;
+      transform: translateX(0);
+  }
+  }
+
+  @keyframes jonnier2{
+    0% {
+      opacity: 0;
+      transform: translateX(100%);
+  }
+
+  100%{
+      opacity: 1;
+      transform: translateX(0);
+  }
+  }
+
+
 
 .contenedor ul li{
     list-style: none;
@@ -62,13 +130,15 @@ header h1{
 }
 
 .inf{
+    
     width: 30%;
-    height: 450px;
+    height: 20%;
     margin-right: 25px;
     text-align: center;
     align-content: left;
     float: right;
     margin-top: 20px;
+    animation: jonnier2 1s ease;
 }
 
 .inf h2{
@@ -120,7 +190,7 @@ header h1{
     text-transform: uppercase;
 }
 
-#selector:hover{
+#selector1:hover{
     box-shadow: black 10px 10px;
     font-size: 25px;
     background: #69ee41;
@@ -128,7 +198,7 @@ header h1{
 }
 
 
-#selector{
+#selector1{
     background: red;
     padding: 10px 22px;
     width: 8%;

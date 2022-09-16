@@ -1,5 +1,41 @@
+*{
+    transition: all 0.3s;
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-image: url(../asseds/reci.png);
+}
+
+.menu-horizontal{
+    background-color:  rgb(14, 24, 51);
+    height: 100px;
+    width: 100%;
+    list-style: none;
+ 
+}
+
+.menu-horizontal > li a{
+    display: block;
+    padding: 15px 20px;
+    font-size: 40px;
+    color: white;
+    text-decoration: none;
+    float: left;
+}
+
+#selector{
+   background: rgb(14, 24, 51);
+   color: white;
+   font-family: 'Lobster', cursive;
+}
+
+#selector:hover{
+    font-size: 57px;
+    color: black;
+    background: #fcff5c;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .todo{
@@ -9,13 +45,25 @@ body{
     background-color:rgb(210, 235, 255);
 }
 
+
+
 .perfil{
-    background-color: rgb(37, 175, 255);
+    
     height: 97%;
 
     display: block;
     justify-content: center;
     align-items: center;
+}
+
+.frase{
+    font-size: 30px;
+    font-family: fantasy;
+    display: inline-block;
+    text-align: center;
+    margin-left: 50px;
+    
+
 }
 
 
@@ -27,11 +75,22 @@ h1{
     }
 
 .logo{
+    background-color: blueviolet;
     margin-left: 45%;
     align-content: center;
     height: 100%;
+    display: flex;
+    justify-content: center;
 
 }
+
+.imagen{
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    
+}
+
 
 
 .info{
@@ -50,8 +109,9 @@ h1{
     margin: 20px;
 }
 
-.info ul{
-    display: flex;
+.info .name{
+    display: block;
+    
 }
 
 .info li{
@@ -59,6 +119,7 @@ h1{
     margin-left: 10px;
     font-family: 'Lobster', cursive;
     font-size: 20px;
+    margin-top: 20px;
 }
 
 .stunt{
